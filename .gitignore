@@ -1,6 +1,12 @@
 /.project
-Library/
-Library/*
-Temp/
-Temp/*
-
+Pizzamancia/Library/
+Pizzamancia/Library/*
+Pizzamancia/Temp/
+Pizzamancia/Temp/*
+Pizzamancia/obj/
+Pizzamancia/obj/*
+Pizzamancia/.vs/
+Pizzamancia/.vs/*
+Pizzamancia/*.csproj/
+Pizzamancia/*.sln/
+Pizzamancia/*.userprefs/
