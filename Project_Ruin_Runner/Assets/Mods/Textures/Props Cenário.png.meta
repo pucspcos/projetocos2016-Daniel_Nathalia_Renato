@@ -1,0 +1,288 @@
+fileFormatVersion: 2
+guid: 94807c930f5eb9645b832304a2912233
+timeCreated: 1476399041
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "Props Cen\xE1rio_0"
+    21300002: "Props Cen\xE1rio_1"
+    21300004: "Props Cen\xE1rio_2"
+    21300006: "Props Cen\xE1rio_3"
+    21300008: "Props Cen\xE1rio_4"
+    21300010: "Props Cen\xE1rio_5"
+    21300012: "Props Cen\xE1rio_6"
+    21300014: "Props Cen\xE1rio_7"
+    21300016: "Props Cen\xE1rio_8"
+    21300018: "Props Cen\xE1rio_9"
+    21300020: "Props Cen\xE1rio_10"
+    21300022: "Props Cen\xE1rio_11"
+    21300024: "Props Cen\xE1rio_12"
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: "Props Cen\xE1rio_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107, y: 107.35294}
+        - {x: -107, y: -106.64706}
+        - {x: 107, y: -106.64706}
+        - {x: 107, y: 107.35294}
+    - name: "Props Cen\xE1rio_1"
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 18
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -106.35295, y: 107.35294}
+        - {x: -106.35295, y: -106.64706}
+        - {x: 107.64705, y: -106.64706}
+        - {x: 107.64705, y: 107.35294}
+    - name: "Props Cen\xE1rio_2"
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 38
+        width: 207
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54.617676, y: 86.41176}
+        - {x: 47.617676, y: 88.41176}
+        - {x: -32.382324, y: 88.41176}
+        - {x: -78.382324, y: 58.41176}
+        - {x: -87.382324, y: 36.41176}
+        - {x: -87.382324, y: -25.588242}
+        - {x: -75.382324, y: -66.58824}
+        - {x: -32.382324, y: -87.58824}
+        - {x: 35.617676, y: -87.58824}
+        - {x: 67.617676, y: -79.58824}
+        - {x: 89.617676, y: -39.58824}
+        - {x: 89.617676, y: 38.41176}
+    - name: "Props Cen\xE1rio_3"
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 16
+        width: 257
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107.647095, y: 110.14706}
+        - {x: -108.647095, y: 109.14706}
+        - {x: -108.647095, y: -107.85294}
+        - {x: -107.647095, y: -108.85294}
+        - {x: 111.352905, y: -108.85294}
+        - {x: 111.352905, y: 110.14706}
+    - name: "Props Cen\xE1rio_4"
+      rect:
+        serializedVersion: 2
+        x: 1831
+        y: 29
+        width: 215
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38.23523, y: 92.73529}
+        - {x: -38.76477, y: 92.73529}
+        - {x: -60.76477, y: 76.73529}
+        - {x: -81.76477, y: 44.73529}
+        - {x: -88.76477, y: 29.73529}
+        - {x: -90.76477, y: 25.73529}
+        - {x: -90.76477, y: -37.26471}
+        - {x: -58.76477, y: -86.26471}
+        - {x: -42.76477, y: -91.26471}
+        - {x: 76.23523, y: -91.26471}
+        - {x: 93.23523, y: -45.26471}
+        - {x: 93.23523, y: 67.73529}
+        - {x: 89.23523, y: 72.73529}
+    - name: "Props Cen\xE1rio_5"
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 5
+        width: 263
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.117676, y: 112.26471}
+        - {x: -110.117676, y: 27.26471}
+        - {x: -110.117676, y: -32.73529}
+        - {x: -43.117676, y: -111.73529}
+        - {x: 48.882324, y: -111.73529}
+        - {x: 113.882324, y: -47.73529}
+        - {x: 113.882324, y: 29.26471}
+        - {x: 18.882324, y: 112.26471}
+    - name: "Props Cen\xE1rio_6"
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 20
+        width: 105
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.617676, y: 45.058823}
+        - {x: -44.617676, y: -44.941177}
+        - {x: 45.382324, y: -44.941177}
+        - {x: 45.382324, y: 45.058823}
+    - name: "Props Cen\xE1rio_7"
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 146
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53.5, y: 54.52941}
+        - {x: -53.5, y: -53.47059}
+        - {x: 53.5, y: -53.47059}
+        - {x: 53.5, y: 54.52941}
+    - name: "Props Cen\xE1rio_8"
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 21
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53.5, y: 54.911766}
+        - {x: -53.5, y: -53.088234}
+        - {x: 53.5, y: -53.088234}
+        - {x: 53.5, y: 54.911766}
+    - name: "Props Cen\xE1rio_9"
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 20
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53.176514, y: 53.558823}
+        - {x: -53.176514, y: -53.441177}
+        - {x: 53.823486, y: -53.441177}
+        - {x: 53.823486, y: 53.558823}
+    - name: "Props Cen\xE1rio_10"
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 20
+        width: 105
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.882385, y: 107.05882}
+        - {x: -44.882385, y: -106.94118}
+        - {x: 45.117615, y: -106.94118}
+        - {x: 45.117615, y: 107.05882}
+    - name: "Props Cen\xE1rio_11"
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 20
+        width: 105
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.705902, y: 107.05882}
+        - {x: -44.705902, y: -106.94118}
+        - {x: 45.294098, y: -106.94118}
+        - {x: 45.294098, y: 107.05882}
+    - name: "Props Cen\xE1rio_12"
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 18
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -106.647095, y: 107.35294}
+        - {x: -106.647095, y: -106.64706}
+        - {x: 107.352905, y: -106.64706}
+        - {x: 107.352905, y: 107.35294}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

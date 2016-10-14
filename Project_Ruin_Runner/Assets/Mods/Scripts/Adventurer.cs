@@ -9,18 +9,12 @@ public class Adventurer : MonoBehaviour {
 	public int maxHealth = 100;
 	private int actualHealth = 0;
 
-	public ParticleSystem myEffects;
-
 	void Start () {
 		gameManager = FindObjectOfType<GameManager> ();
 
 		originalPosition = transform.parent.position;
 
 		actualHealth = maxHealth;
-
-		if (myEffects != null) {
-			myEffects = GetComponent<ParticleSystem> ();
-		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -41,8 +35,6 @@ public class Adventurer : MonoBehaviour {
 					gameManager.DecrementLife ();
 				}
 			}
-
-			//if(myEffects !=null) myEffects.enableEmission = true;
 		}
 	}
 }
