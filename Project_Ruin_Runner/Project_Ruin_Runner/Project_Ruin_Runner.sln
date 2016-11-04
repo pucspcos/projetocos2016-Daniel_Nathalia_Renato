@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{B68C701F-553A-E0CB-1227-094A25913936}") = "Project_Ruin_Runner", "Assembly-CSharp-firstpass.csproj", "{330A666B-EAAA-5F79-2454-D9EE55F49B0A}"
+EndProject
+Project("{B68C701F-553A-E0CB-1227-094A25913936}") = "Project_Ruin_Runner", "Assembly-CSharp.csproj", "{F862DAAE-D015-BAAD-54E6-81ABE3AFCEEF}"
+EndProject
+Project("{B68C701F-553A-E0CB-1227-094A25913936}") = "Project_Ruin_Runner", "Assembly-UnityScript.unityproj", "{7F264084-EE30-DFB2-EDEF-DAABE4365038}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{330A666B-EAAA-5F79-2454-D9EE55F49B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330A666B-EAAA-5F79-2454-D9EE55F49B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330A666B-EAAA-5F79-2454-D9EE55F49B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330A666B-EAAA-5F79-2454-D9EE55F49B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F862DAAE-D015-BAAD-54E6-81ABE3AFCEEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F862DAAE-D015-BAAD-54E6-81ABE3AFCEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F862DAAE-D015-BAAD-54E6-81ABE3AFCEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F862DAAE-D015-BAAD-54E6-81ABE3AFCEEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F264084-EE30-DFB2-EDEF-DAABE4365038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F264084-EE30-DFB2-EDEF-DAABE4365038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F264084-EE30-DFB2-EDEF-DAABE4365038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F264084-EE30-DFB2-EDEF-DAABE4365038}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
