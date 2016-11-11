@@ -8,49 +8,57 @@ using System.Collections;
 using Utils.Map;
 
 public class ModdedGameManager : MonoBehaviour {
-	private MapGenerator mapGen;
+	private MapGenerator mapGenerator;
 
 	public int lifes = 3;
-	public int extraLifeLevels = 5;
+	public int extraLifeLevel = 5;
 	public int maxHealth = 100;
-	public int actualHealth = 0;
+	public int actualHealth;
 
 	public Slider healthbar;
 	public Text lifesHUD;
 	public Text levelHUD;
 
-	public Text TotalHitsGUI;
-	public Text TotalLifesGainedGUI;
-	public GameObject GameOverGUI;
-	public GameObject ExtraLifeGUI;
+	public Text totalHitsHUD;
+	public Text totalExtraLifesHUD;
+	public GameObject gameOverPanel;
+	public GameObject extraLifeAdvice;
 
-	private int countLevels = 1;
-	private int countHits = 0;
-	private int countLifeGained = 0;
+	private int actualLevel = 1;
+	private int totalHits = 0;
+	private int totalExtraLife = 0;
 
 	void Start () {
-		mapGen = FindObjectOfType<MapGenerator> ();
+		mapGenerator = FindObjectOfType<MapGenerator> ();
 
 		actualHealth = maxHealth;
 
 		healthbar.minValue = 0;
 		healthbar.maxValue = maxHealth;
 
-		if(GameOverGUI !=null) GameOverGUI.SetActive (false);
-		if (ExtraLifeGUI != null) ExtraLifeGUI.SetActive(false);
+		if (gameOverPanel != null) {
+			gameOverPanel.SetActive (false);
+		}
+
+		if (extraLifeAdvice != null) {
+			extraLifeAdvice.SetActive (false);
+		}
 
 		UpdateMenuGUI ();
 	}
 		
-	public IEnumerator IncrementLevels () {
-		countLevels++;
+	public IEnumerator IncrementLevel () {
+		actualLevel++;
 
-		if (countLevels % extraLifeLevels == 0) {
-			ExtraLifeGUI.SetActive(true);
-			yield return new WaitForSeconds(1.0f);
+		if (actualLevel % extraLifeLevel == 0) {
+			extraLifeAdvice.SetActive(true);
+
 			lifes++;
-			countLifeGained++;
-			ExtraLifeGUI.SetActive(false);
+			totalExtraLife++;
+
+			yield return new WaitForSeconds(1.0f);
+
+			extraLifeAdvice.SetActive(false);
 		}
 
 		UpdateMenuGUI();
@@ -58,12 +66,12 @@ public class ModdedGameManager : MonoBehaviour {
 
 	public void IncrementHits()
 	{
-		countHits++;
+		totalHits++;
 	}
 
 	public void sufferDamage (int damage) 
 	{
-		countHits++;
+		totalHits++;
 		actualHealth -= damage;
 		UpdateMenuGUI ();
 	}
@@ -74,19 +82,30 @@ public class ModdedGameManager : MonoBehaviour {
 		UpdateMenuGUI ();
 	}
 
-	void UpdateMenuGUI () {		
+	void UpdateMenuGUI () {
 		if (lifes <= 0) 
 		{
 			actualHealth = 0;
 
-			if(mapGen !=null) Destroy(mapGen.gameObject);
-			if(TotalHitsGUI !=null) TotalHitsGUI.text += countHits;
-			if(TotalLifesGainedGUI !=null) TotalLifesGainedGUI.text += countLifeGained;
-			if(GameOverGUI !=null) GameOverGUI.SetActive(true);
+			if (mapGenerator != null) {
+				Destroy (mapGenerator.gameObject);
+			}
+
+			if (totalHitsHUD != null) {
+				totalHitsHUD.text = "Total Hits: " + totalHits.ToString();
+			}
+
+			if (totalExtraLifesHUD != null) {
+				totalExtraLifesHUD.text = "Extra Lifes Gained: " + totalExtraLife.ToString();
+			}
+
+			if (gameOverPanel != null) {
+				gameOverPanel.SetActive (true);
+			}
 		} 
 
 		healthbar.value = actualHealth;
 		lifesHUD.text = "x " + lifes;
-		levelHUD.text = "Level: " + countLevels;
+		levelHUD.text = "Level: " + actualLevel;
 	}
 }

@@ -4,7 +4,7 @@ using System.Collections;
 public class Adventurer : MonoBehaviour
 {
     ModdedGameManager gameManager;
-    private Utils.Map.MapGenerator mapGen = null;
+	private Utils.Map.MapGenerator mapGenerator = null;
 
 	Animator adventurerAnimator;
     Rigidbody2D adventurerRdb;
@@ -14,12 +14,12 @@ public class Adventurer : MonoBehaviour
     Vector3 originalPosition = Vector3.zero;
     Vector3 velocity;
 	public float originalSpeed = 10.0f;
-    public float speed = 0;
+	public float speed;
 
     void Start()
     {
 		gameManager = FindObjectOfType<ModdedGameManager>();
-        mapGen = GameObject.FindObjectOfType<Utils.Map.MapGenerator>();
+        mapGenerator = GameObject.FindObjectOfType<Utils.Map.MapGenerator>();
 
 		adventurerAnimator = this.gameObject.GetComponent<Animator>();
         adventurerRdb = this.gameObject.GetComponent<Rigidbody2D>();
@@ -31,7 +31,7 @@ public class Adventurer : MonoBehaviour
     void Update()
     {
         velocity = new Vector2(Input.GetAxisRaw(inputHorizontal),
-            Input.GetAxisRaw(inputVertical)).normalized * (speed * (mapGen == null ? 1 : mapGen.tileScale));
+            Input.GetAxisRaw(inputVertical)).normalized * (speed * (mapGenerator == null ? 1 : mapGenerator.tileScale));
 
         adventurerAnimator.SetFloat("walking", velocity.magnitude);
     }
@@ -45,11 +45,11 @@ public class Adventurer : MonoBehaviour
         this.transform.up = velocity2D;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter2D(Collider2D colisor)
     {
-		if (other.gameObject.tag.ToString().Equals("Enemy"))
+		if (colisor.gameObject.tag.ToString().Equals("Enemy"))
         {
-            Mob touchedMob = other.GetComponent<Mob>();
+            Mob touchedMob = colisor.GetComponent<Mob>();
 		
 			if (gameManager != null) {
 				gameManager.sufferDamage (touchedMob.Damage);
