@@ -6,7 +6,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour {
 	ModdedGameManager moddedGameManager = null;
 
-	public int scoreValue = 5;
+	public int scoreValue = 3;
 
 	void Start () 
 	{

@@ -97,7 +97,7 @@ public class ModdedGameManager : MonoBehaviour {
 		{
 			totalHits++;
 			actualHealth -= damage;
-			invulnerableTime += 3f;
+			invulnerableTime += 1f;
 			speedUpTime = 0f;
 
 			updateHUD ();
@@ -127,7 +127,7 @@ public class ModdedGameManager : MonoBehaviour {
 
 		invulnerableTime = 0;
 		speedUpTime = 0;
-		changeScore(10);
+		changeScore(5);
 
 		updateHUD();
 	}
