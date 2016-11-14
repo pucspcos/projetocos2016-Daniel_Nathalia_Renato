@@ -1,5 +1,6 @@
 ﻿/**
- * Created by Mario Madureira Fontes 
+ * Created by Mario Madureira Fontes
+ * Edited by Daniel Haruo Tamura
  * Procedural Game Jam 2015
  */
 using UnityEngine;
@@ -11,98 +12,86 @@ public class ModdedGameManager : MonoBehaviour {
 	private MapGenerator mapGenerator;
 
 	public int lifes = 3;
-	public int extraLifeLevel = 5;
+	public int extraLifeLevelPeriod = 5;
 	public int maxHealth = 100;
 	public int actualHealth;
+
+	public float originalSpeed = 10.0f;
+	public float speed;
+
+	private int actualLevel = 1;
+	private int totalExtraLife = 0;
+	private int totalHits = 0;
 
 	public Slider healthbar;
 	public Text lifesHUD;
 	public Text levelHUD;
 
-	public Text totalHitsHUD;
-	public Text totalExtraLifesHUD;
 	public GameObject gameOverPanel;
+	public Text totalExtraLifesHUD;
+	public Text totalHitsHUD;
 	public GameObject extraLifeAdvice;
-
-	private int actualLevel = 1;
-	private int totalHits = 0;
-	private int totalExtraLife = 0;
 
 	void Start () {
 		mapGenerator = FindObjectOfType<MapGenerator> ();
-
 		actualHealth = maxHealth;
+		speed = originalSpeed;
 
 		healthbar.minValue = 0;
 		healthbar.maxValue = maxHealth;
+		gameOverPanel.SetActive (false);
+		extraLifeAdvice.SetActive (false);
 
-		if (gameOverPanel != null) {
-			gameOverPanel.SetActive (false);
-		}
-
-		if (extraLifeAdvice != null) {
-			extraLifeAdvice.SetActive (false);
-		}
-
-		UpdateMenuGUI ();
+		updateHUD ();
 	}
 		
-	public IEnumerator IncrementLevel () {
-		actualLevel++;
-
-		if (actualLevel % extraLifeLevel == 0) {
-			extraLifeAdvice.SetActive(true);
-
-			lifes++;
-			totalExtraLife++;
-
-			yield return new WaitForSeconds(1.0f);
-
-			extraLifeAdvice.SetActive(false);
-		}
-
-		UpdateMenuGUI();
-	}
-
-	public void IncrementHits()
+	public void healDamage (int damageHealed)
 	{
-		totalHits++;
+		actualHealth += damageHealed;
+		updateHUD ();
 	}
 
 	public void sufferDamage (int damage) 
 	{
 		totalHits++;
 		actualHealth -= damage;
-		UpdateMenuGUI ();
+		updateHUD ();
 	}
 
-	public void DecrementLife () 
+	public void changeLifes (int value) 
 	{
-		lifes--;
-		UpdateMenuGUI ();
+		lifes += value;
+		updateHUD ();
 	}
 
-	void UpdateMenuGUI () {
+	public IEnumerator incrementLevel () {
+		actualLevel++;
+
+		if (actualLevel % extraLifeLevelPeriod == 0) 
+		{
+			lifes++;
+			totalExtraLife++;
+
+			extraLifeAdvice.SetActive(true);
+			yield return new WaitForSeconds(1.0f);
+			extraLifeAdvice.SetActive(false);
+		}
+
+		updateHUD();
+	}
+		
+	void updateHUD () 
+	{
 		if (lifes <= 0) 
 		{
 			actualHealth = 0;
 
-			if (mapGenerator != null) {
-				Destroy (mapGenerator.gameObject);
-			}
+			Destroy (mapGenerator.gameObject);
+			totalExtraLifesHUD.text = "Extra Lifes Gained: " + totalExtraLife.ToString ();
+			totalHitsHUD.text = "Total Hits: " + totalHits.ToString ();
 
-			if (totalHitsHUD != null) {
-				totalHitsHUD.text = "Total Hits: " + totalHits.ToString();
-			}
-
-			if (totalExtraLifesHUD != null) {
-				totalExtraLifesHUD.text = "Extra Lifes Gained: " + totalExtraLife.ToString();
-			}
-
-			if (gameOverPanel != null) {
-				gameOverPanel.SetActive (true);
-			}
-		} 
+			gameOverPanel.SetActive (true);
+		}
 
 		healthbar.value = actualHealth;
 		lifesHUD.text = "x " + lifes;

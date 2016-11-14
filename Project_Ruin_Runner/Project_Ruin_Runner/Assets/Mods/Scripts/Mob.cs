@@ -1,39 +1,41 @@
-﻿using UnityEngine;
+﻿/**
+ * Created by Mario Madureira Fontes
+ * Edited by Daniel Haruo Tamura
+ * Procedural Game Jam 2015
+ */
+using UnityEngine;
 using System.Collections;
 
 public class Mob : MonoBehaviour
-{
-    public GameObject prefabMob = null;
+{	
+	ModdedGameManager moddedGameManager;
 
-    public float timeRefreshFire = 1.0f;
-    public Vector2 moveDirection = Vector2.right;
+	public Rigidbody2D mobRdb;
 
+	public Vector2 moveDirection = Vector2.right;
+	public float timeRefresh = 1.0f;
+   
     public int damage = 25;
 
-    void Start()
-    {
-        InvokeRepeating("mover", timeRefreshFire, timeRefreshFire);
+	void Start()
+	{
+		moddedGameManager = FindObjectOfType<ModdedGameManager>();
+
+		mobRdb = this.gameObject.GetComponent<Rigidbody2D> ();
+
+		InvokeRepeating("mover", timeRefresh, timeRefresh);
+	}
+
+    void mover()
+	{
+		mobRdb.AddForce(moveDirection, ForceMode2D.Impulse);
     }
 
-    public int Damage
-    {
-        get { return damage; }
-        set { damage = value; }
-    }
-
-    void move()
-    {
-        GameObject clonePrefab = Instantiate(prefabMob);
-        Rigidbody2D cloneRdb = clonePrefab.GetComponent<Rigidbody2D>();
-
-        clonePrefab.transform.position = this.gameObject.transform.position;
-        //clonePrefab.transform.rotation = this.gameObject.transform.rotation;
-
-        if (cloneRdb != null)
-        {
-            cloneRdb.AddForce(moveDirection, ForceMode2D.Impulse);
-        }
-
-        this.transform.up = -moveDirection;
-    }
+	void OnTriggerEnter2D(Collider2D colisor)
+	{
+		if (colisor.gameObject.tag.ToString() == "Player")
+		{
+			moddedGameManager.sufferDamage (damage);
+		}
+	}
 }

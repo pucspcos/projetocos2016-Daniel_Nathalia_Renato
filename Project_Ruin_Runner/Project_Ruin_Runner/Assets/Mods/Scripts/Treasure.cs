@@ -1,28 +1,25 @@
 ﻿/**
- * Created by Mario Madureira Fontes 
+ * Created by Mario Madureira Fontes
+ * Edited by Daniel Haruo Tamura
  * Procedural Game Jam 2015
  */
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using Utils.Map;
 
 public class Treasure : PlaceBehaviour {
-	ModdedGameManager gameManager = null;
+	ModdedGameManager moddedGameManager = null;
 	MapGenerator mapGenerator = null;
-	//PlaceObjectMap placement = null;
 
 	void Start () {
-		gameManager = FindObjectOfType<ModdedGameManager> ();
+		moddedGameManager = FindObjectOfType<ModdedGameManager> ();
 		mapGenerator = FindObjectOfType<MapGenerator> ();
-		//placement = FindObjectOfType<PlaceObjectMap> ();
 	}
 
 	IEnumerator OnTriggerEnter2D(Collider2D colisor) {
-		if (colisor.gameObject.layer == 8) {
-			yield return StartCoroutine (gameManager.IncrementLevel ());
+		if (colisor.gameObject.tag.ToString() == "Player") {
+			yield return StartCoroutine (moddedGameManager.incrementLevel ());
 			yield return StartCoroutine (mapGenerator.GenerateMap ());
-			//placement.ApplyLevelAjustment();
 		}
 	}
 }

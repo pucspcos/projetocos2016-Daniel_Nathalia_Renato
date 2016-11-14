@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿/**
+ * Created by Mario Madureira Fontes
+ * Edited by Daniel Haruo Tamura
+ * Procedural Game Jam 2015
+ */
+using UnityEngine;
 using System.Collections;
 
 public class Adventurer : MonoBehaviour
 {
-    ModdedGameManager gameManager;
+	ModdedGameManager moddedGameManager;
 	private Utils.Map.MapGenerator mapGenerator = null;
 
 	Animator adventurerAnimator;
@@ -13,26 +18,23 @@ public class Adventurer : MonoBehaviour
     string inputVertical = "Vertical";
     Vector3 originalPosition = Vector3.zero;
     Vector3 velocity;
-	public float originalSpeed = 10.0f;
-	public float speed;
 
     void Start()
     {
-		gameManager = FindObjectOfType<ModdedGameManager>();
+		moddedGameManager = FindObjectOfType<ModdedGameManager>();
         mapGenerator = GameObject.FindObjectOfType<Utils.Map.MapGenerator>();
 
 		adventurerAnimator = this.gameObject.GetComponent<Animator>();
         adventurerRdb = this.gameObject.GetComponent<Rigidbody2D>();
 
         originalPosition = transform.position;
-		speed = originalSpeed;
     }
 
     void Update()
     {
         velocity = new Vector2(Input.GetAxisRaw(inputHorizontal),
-            Input.GetAxisRaw(inputVertical)).normalized * (speed * (mapGenerator == null ? 1 : mapGenerator.tileScale));
-
+			Input.GetAxisRaw(inputVertical)).normalized * (moddedGameManager.speed * (mapGenerator == null ? 1 : mapGenerator.tileScale));
+	
         adventurerAnimator.SetFloat("walking", velocity.magnitude);
     }
 
@@ -41,29 +43,15 @@ public class Adventurer : MonoBehaviour
         Vector2 velocity2D = new Vector2(velocity.x, velocity.y);
 
         adventurerRdb.MovePosition(Vector3.Lerp(adventurerRdb.position, adventurerRdb.position + velocity2D, Time.fixedDeltaTime));
+        
+		transform.up = velocity2D;
 
-        this.transform.up = velocity2D;
-    }
-
-	void OnTriggerEnter2D(Collider2D colisor)
-    {
-		if (colisor.gameObject.tag.ToString().Equals("Enemy"))
-        {
-            Mob touchedMob = colisor.GetComponent<Mob>();
-		
-			if (gameManager != null) {
-				gameManager.sufferDamage (touchedMob.Damage);
-
-				if (gameManager.actualHealth <= 0) 
-				{
-					gameManager.actualHealth = gameManager.maxHealth;
-
-					transform.position = originalPosition;
-					speed = originalSpeed;
-					             
-					gameManager.DecrementLife ();
-				}
-			}
-        }
+		if (moddedGameManager.actualHealth <= 0) 
+		{
+			moddedGameManager.actualHealth = moddedGameManager.maxHealth;
+			moddedGameManager.speed = moddedGameManager.originalSpeed;
+			transform.position = originalPosition;
+			moddedGameManager.changeLifes (-1);
+		}
     }
 }
