@@ -4,13 +4,16 @@
  * Procedural Game Jam 2015
  */
 using UnityEngine;
-using System.Collections;
 
 public class Adventurer : MonoBehaviour
 {
 	ModdedGameManager moddedGameManager;
 	private Utils.Map.MapGenerator mapGenerator = null;
+	public Material normalMaterial;
+	public Material invulnerableMaterial;
+	public Material speedUpMaterial;
 
+	SpriteRenderer adventurerSprite;
 	Animator adventurerAnimator;
     Rigidbody2D adventurerRdb;
     
@@ -24,6 +27,7 @@ public class Adventurer : MonoBehaviour
 		moddedGameManager = FindObjectOfType<ModdedGameManager>();
         mapGenerator = GameObject.FindObjectOfType<Utils.Map.MapGenerator>();
 
+		adventurerSprite = this.gameObject.GetComponent<SpriteRenderer>();
 		adventurerAnimator = this.gameObject.GetComponent<Animator>();
         adventurerRdb = this.gameObject.GetComponent<Rigidbody2D>();
 
@@ -49,9 +53,24 @@ public class Adventurer : MonoBehaviour
 		if (moddedGameManager.actualHealth <= 0) 
 		{
 			moddedGameManager.actualHealth = moddedGameManager.maxHealth;
+			moddedGameManager.invulnerableTime = 0;
 			moddedGameManager.speed = moddedGameManager.originalSpeed;
+			moddedGameManager.speedUpTime = 0;
 			transform.position = originalPosition;
 			moddedGameManager.changeLifes (-1);
+		}
+
+		if (moddedGameManager.invulnerableTime > 0) 
+		{
+			adventurerSprite.material = invulnerableMaterial;
+		}
+		else if (moddedGameManager.speedUpTime > 0)  
+		{
+			adventurerSprite.material = speedUpMaterial;
+		}
+		else 
+		{
+			adventurerSprite.material = normalMaterial;
 		}
     }
 }

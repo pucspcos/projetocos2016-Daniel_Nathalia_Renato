@@ -3,10 +3,10 @@
  */
 using UnityEngine;
 
-public class Heal : MonoBehaviour {
+public class Coin : MonoBehaviour {
 	ModdedGameManager moddedGameManager = null;
 
-	public int damageHealed = 50;
+	public int scoreValue = 5;
 
 	void Start () 
 	{
@@ -15,10 +15,9 @@ public class Heal : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colisor) 
 	{
-		if (colisor.gameObject.tag.ToString() == "Player" && 
-			moddedGameManager.actualHealth < moddedGameManager.maxHealth) 
+		if (colisor.gameObject.tag.ToString() == "Player") 
 		{
-			moddedGameManager.healDamage (damageHealed);
+			moddedGameManager.changeScore(scoreValue);
 
 			Destroy (this.gameObject);
 		}
